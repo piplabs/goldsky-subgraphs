@@ -1,0 +1,17 @@
+{
+    "name": "ip-asset-registry/1.0.0",
+    "version": "1",
+    "abis": {
+      "ip-asset-registry": {
+        "path": "./abis/ip-asset-registry.json"
+      }
+    },
+    "instances": [
+      {
+        "abi": "ip-asset-registry",
+        "address": "0xe34A78B3d658aF7ad69Ff1EFF9012ECa025a14Be",
+        "startBlock": 0,
+        "chain": "story-testnet"
+      }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "dispute-module/1.0.0",
+    "version": "1",
+    "abis": {
+      "dispute-module": {
+        "path": "./abis/dispute-module.json"
+      }
+    },
+    "instances": [
+      {
+        "abi": "dispute-module",
+        "address": "0xDae11663438a0958E7075F604E3a5eEe77FD3878",
+        "startBlock": 0,
+        "chain": "story-testnet"
+      }
+    ]
+}

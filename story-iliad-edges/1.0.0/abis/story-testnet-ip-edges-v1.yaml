@@ -1,0 +1,57 @@
+name: story-testnet-ip-edges-story-testnet
+apiVersion: 3
+resource_size: s
+sources:
+  story_testnet_derivative_registered:
+    name: derivative_registered
+    subgraphs:
+      - name: ip_edges-story-testnet
+        version: '1.0'
+    type: subgraph_entity
+transforms:
+  process_derivative_registered:
+    sql: >
+      WITH parsed_data AS (
+        SELECT
+          *,
+          _gs_split_string_by(license_terms_ids, ',') AS license_terms_ids_array,
+          _gs_split_string_by(parent_ip_ids, ',') AS parent_ip_ids_array,
+          CASE 
+            WHEN license_token_ids IS NOT NULL THEN _gs_split_string_by(license_token_ids, ',')
+            ELSE NULL
+          END AS license_token_ids_array
+        FROM story_testnet_derivative_registered
+      )
+      SELECT
+        id || '_' || CAST(t.idx AS STRING) AS id,
+        CAST(block_number AS BIGINT) AS block_number,
+        caller AS caller_address,
+        child_ip_id AS child_ip_id,
+        CAST(license_terms_ids_array[t.idx] AS NUMERIC(78)) AS license_terms_id,
+        parent_ip_ids_array[t.idx] AS parent_ip_id,
+        CASE 
+          WHEN license_token_ids_array IS NOT NULL THEN 
+            CAST(license_token_ids_array[t.idx] AS NUMERIC(78))
+          ELSE NULL
+        END AS license_token_id,
+        license_template AS license_template,
+        transaction_hash AS transaction_hash
+      FROM
+        parsed_data
+          CROSS JOIN UNNEST(
+            CAST(
+              _gs_generate_series(
+                CAST(1 AS BIGINT),
+                CAST(COALESCE(CARDINALITY(license_terms_ids_array), 0) AS BIGINT)
+            ) AS ARRAY<INTEGER>
+          )
+        ) AS t (idx)
+    primary_key: id
+sinks:
+  postgres_story_testnet_derivative_registered:
+    type: postgres
+    table: ip_edges
+    schema: public
+    secret_name: BLOCKCHAIN_RDS
+    description: 'Postgres sink for: story-testnet.derivative_registered'
+    from: process_derivative_registered

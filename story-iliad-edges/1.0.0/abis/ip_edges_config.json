@@ -1,0 +1,18 @@
+{
+    "version": "1",
+    "name": "IP Assets Edges",
+    "abis": {
+      "licensingModule": {
+        "path": "./licensing_module.json"
+      }
+    },
+    "instances": [
+      {
+        "abi": "licensingModule",
+        "address": "0xf49da534215DA7b48E57A41d41dac25C912FCC60",
+        "startBlock": 1229,
+        "chain": "story-testnet"
+      }
+    ]
+  }
+  

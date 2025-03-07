@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "name": "Royalty Module",
+  "abis": {
+    "royaltyModule": {
+      "path": "./royalty-module-abi.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "royaltyModule",
+      "address": "0xD2f60c40fEbccf6311f8B47c4f2Ec6b040400086",
+      "startBlock": 414864,
+      "chain": "story-aeneid"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+    "version": "1",
+    "name": "Royalty Vault Events",
+    "abis": {
+      "Factory": {
+        "path": "./royalty-module-abi.json"
+      },
+      "Vault": {
+        "path": "./royalty-vault-abi.json"
+      }
+    },
+    "instances": [
+      {
+        "abi": "Factory",
+        "address": "0xD2f60c40fEbccf6311f8B47c4f2Ec6b040400086",
+        "startBlock": 414864,
+        "chain": "story-aeneid"
+      },
+      {
+        "abi": "Vault",
+        "source": {
+          "abi": "Factory",
+          "eventSignature": "IpRoyaltyVaultDeployed(address,address)",
+          "addressParam": "ipRoyaltyVault"
+        }
+      }
+    ]
+  }

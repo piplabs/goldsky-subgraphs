@@ -1,0 +1,17 @@
+{
+    "name": "license-registry-iliad/1.0.0",
+    "version": "1",
+    "abis": {
+      "license-registry-iliad": {
+        "path": "./license-registry-iliad.json"
+      }
+    },
+    "instances": [
+      {
+        "abi": "license-registry-iliad",
+        "address": "0xF542AF9a5A6E4A85a4f084D38B322516ec336097",
+        "startBlock": 0,
+        "chain": "story-testnet"
+      }
+    ]
+}
