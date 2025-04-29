@@ -7,12 +7,6 @@
       },
       "Vault": {
         "path": "./royalty-vault-abi.json"
-      },
-      "RoyaltyPolicyLRP": {
-        "path": "./royalty-policy-lrp-abi.json"
-      },
-      "RoyaltyPolicyLAP": {
-        "path": "./royalty-policy-lap-abi.json"
       }
     },
     "instances": [
@@ -29,18 +23,6 @@
           "eventSignature": "IpRoyaltyVaultDeployed(address,address)",
           "addressParam": "ipRoyaltyVault"
         }
-      },
-      {
-        "abi": "RoyaltyPolicyLRP",
-        "address": "0x9156e603C949481883B1d3355c6f1132D191fC41",
-        "startBlock": 0,
-        "chain": "story-aeneid"
-      },
-      {
-        "abi": "RoyaltyPolicyLAP",
-        "address": "0xBe54FB168b3c982b7AaE60dB6CF75Bd8447b390E", 
-        "startBlock": 0,
-        "chain": "story-aeneid"
       }
     ]
   }
