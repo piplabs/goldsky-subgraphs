@@ -1,0 +1,45 @@
+{
+  "name": "aeneid-royalty-events-v2/1.0.0",
+  "version": "1",
+  "abis": {
+    "royalty_module": {
+      "path": "./abis/royalty_module.json"
+    },
+    "royalty_vault": {
+      "path": "./abis/royalty_vault.json"
+    },
+    "royalty_policy_lap": {
+      "path": "./abis/royalty_policy_lap.json"
+    },
+    "royalty_policy_lrp": {
+      "path": "./abis/royalty_policy_lrp.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "royalty_module",
+      "address": "0xD2f60c40fEbccf6311f8B47c4f2Ec6b040400086",
+      "startBlock": 0,
+      "chain": "story-aeneid"
+    },
+    {
+      "abi": "royalty_vault",
+      "address": "0xE54f6c8C32d927CefF6CCE5b19FD6367f6176f1f",
+      "startBlock": 0,
+      "chain": "story-aeneid"
+    },
+    {
+      "abi": "royalty_policy_lap",
+      "address": "0xBe54FB168b3c982b7AaE60dB6CF75Bd8447b390E",
+      "startBlock": 0,
+      "chain": "story-aeneid"
+    },
+    {
+      "abi": "royalty_policy_lrp",
+      "address": "0x9156e603C949481883B1d3355c6f1132D191fC41",
+      "startBlock": 0,
+      "chain": "story-aeneid"
+    }
+  ],
+  "enableCallHandlers": false
+}
