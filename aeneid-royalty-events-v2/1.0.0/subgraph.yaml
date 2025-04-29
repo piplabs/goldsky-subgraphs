@@ -1,0 +1,86 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: RoyaltyModule
+    network: story-aeneid
+    source:
+      address: "0xD2f60c40fEbccf6311f8B47c4f2Ec6b040400086"
+      abi: Factory
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - IpRoyaltyVaultDeployed
+      abis:
+        - name: Factory
+          file: ./abis/royalty_module.json
+      eventHandlers:
+        - event: IpRoyaltyVaultDeployed(address,address)
+          handler: handleIpRoyaltyVaultDeployed
+
+  - kind: ethereum/contract
+    name: RoyaltyVault
+    network: story-aeneid
+    source:
+      abi: RoyaltyVault
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - RoyaltyVaultEvent
+      abis:
+        - name: RoyaltyVault
+          file: ./abis/royalty_vault.json
+      eventHandlers:
+        - event: RevenueTokenClaimed(address,address,uint256)
+          handler: handleRevenueTokenClaimed
+
+  - kind: ethereum
+    name: RoyaltyPolicyLRP
+    network: story-aeneid
+    source:
+      address: "0x9156e603C949481883B1d3355c6f1132D191fC41"
+      abi: RoyaltyPolicyLRP
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - RevenueTransferredToVault
+      abis:
+        - name: RoyaltyPolicyLRP
+          file: ./abis/royalty_policy_lrp.json
+      eventHandlers:
+        - event: RevenueTransferredToVault(address,address,address,uint256)
+          handler: handleRevenueTransferredToVaultLRP
+
+  - kind: ethereum
+    name: RoyaltyPolicyLAP
+    network: story-aeneid
+    source:
+      address: "0xBe54FB168b3c982b7AaE60dB6CF75Bd8447b390E"
+      abi: RoyaltyPolicyLAP
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - RevenueTransferredToVault
+      abis:
+        - name: RoyaltyPolicyLAP
+          file: ./abis/royalty_policy_lap.json
+      eventHandlers:
+        - event: RevenueTransferredToVault(address,address,address,uint256)
+          handler: handleRevenueTransferredToVaultLAP 

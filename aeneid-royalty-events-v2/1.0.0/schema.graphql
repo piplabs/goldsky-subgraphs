@@ -1,0 +1,32 @@
+type IpRoyaltyVaultDeployed @entity {
+  id: ID!
+  ipId: String!
+  ipRoyaltyVault: String!
+  block_number: BigInt!
+  timestamp_: BigInt!
+  transactionHash_: String!
+  contractId_: String!
+}
+
+type RevenueTransferredToVault @entity {
+  id: ID!
+  ipId: String!
+  ancestorIpId: String!
+  token: String!
+  amount: BigInt!
+  block_number: BigInt!
+  timestamp_: BigInt!
+  transactionHash_: String!
+  contractId_: String!
+}
+
+type RoyaltyVaultEvent @entity {
+  id: ID!
+  ipId: String!
+  token: String!
+  amount: BigInt!
+  block_number: BigInt!
+  timestamp_: BigInt!
+  transactionHash_: String!
+  contractId_: String!
+} 
